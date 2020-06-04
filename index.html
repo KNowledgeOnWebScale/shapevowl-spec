@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShapeVOWL: RDF Constraints Visualization based on VOWL</title>
+    <meta charset='utf-8'>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src='https://www.w3.org/Tools/respec/respec-w3c-common'
+            async class='remove'></script>
+    <script class='remove'>
+        var respecConfig = {
+            specStatus: "unofficial",
+            shortName: "constraints-visualization-vowl",
+            authors: [
+                {
+                    name: "Sven Lieber",
+                    url: "https://sven-lieber.org",
+                    mailto: "sven.lieber@ugent.be",
+                    company: "Ghent University — IDLab — imec",
+                }
+            ],
+            editors: [
+                {
+                    name: "Sven Lieber",
+                    url: "https://sven-lieber.org",
+                    mailto: "sven.lieber@ugent.be",
+                    company: "Ghent University — IDLab — imec",
+                },
+                {
+                    name: "Anastasia Dimou",
+                    company: "Ghent University — IDLab — imec",
+                }
+            ],
+            localBiblio:  {
+                "RDF": {
+                  title: "RDF 1.1 Concepts and Abstract Syntax"
+                  , href: "https://www.w3.org/TR/rdf11-concepts/"
+                  , publisher: "W3C"
+                },
+                "SHACL": {
+                  title: "Shapes Constraint Langauge (SHACL)"
+                  , href: "https://www.w3.org/TR/shacl/"
+                  , publisher: "W3C"
+                },
+                "VOWL": {
+                  title: "Visual Notation for OWL Ontologies (VOWL)"
+                  , href: "http://vowl.visualdataweb.org/v2/"
+                },
+                "QueryVOWL": {
+                  title: "QueryVOWL"
+                  , href: "http://vowl.visualdataweb.org/queryvowl/index.html"
+                },
+                "MapVOWL": {
+                  title: "MapVOWL"
+                  , href: "https://rml.io/specs/mapvowl/"
+                  , publisher: "rml.io"
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<section id='abstract'>
+    <p>
+
+      This document  defines ShapeVOWL, a visual notation for RDF constraints. It specifies the visualization primitives to represent constraints to users.
+      
+    </p>
+</section>
+
+<section id='sotd'>
+    <p>
+        This document is the result of research and the accompanying paper is currently under submission at the 22nd International Conference on Knowledge Engineering and Knowledge Management (EKAW 2020).
+    </p>
+</section>
+
+<section class='informative'>
+    <h2>Introduction</h2>
+    <p>
+        Knowledge Graphs defined with the Resource Description Framework [[RDF]] consist of vocabulary terms and instance data both described using the graph model of RDF.
+        Several constraint languages exist to define conditions on such RDF graphs, one such language is the W3C recommended Shapes Constraint Language [[SHACL]]
+        which itself is represented using RDF.
+        Users rely on different types of constraints offered by constraint languages to define conditions on RDF graphs.
+    </p>
+    <p>
+        RDF follows a graph model which intuitively can be represented using nodes and edges.
+        The Visual Notation for OWL Ontologies [[VOWL]] leverages this graph model to visualize ontologies, the vocabulary of terms of Knowledge Graphs.
+        Besides this, VOWL-based visual notations were also used for the RDF Query Language SPARQL [[QueryVOWL]], used to query RDF data, and
+        for the RDF Mapping Language (RML) [[MapVOWL]], used to transform structured data to RDF.
+        ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RDF constraints.
+    </p>
+</section>
+
+<!--<section class='informative'>
+    <h2>Design Goals and Rationale</h2>
+</section>
+-->
+
+<section>
+    <h2>Terminology</h2>
+
+        Throughout the document, the following terminology is used.
+
+    <section>
+        <h2>General</h2>
+
+        <dl>
+            <dt><dfn id="dfn-entity">(anonymous) entity</dfn></dt>
+            <dd>
+                An entity is something that exists as a distinct, independent, or self-contained unit.
+                Examples are people, companies, buildings and so on.
+                If you want to uniquely address an entity then it needs to have a unique name.
+                Therefore, entities use HTTP URIs.
+                However, when a entity does not have a URI we call it an <span class="emph">anonymous</span> entity.
+            </dd>
+            <dt><dfn id="dfn-attribute">attribute</dfn></dt>
+            <dd>
+                More information is provided about an entity by adding attribute to it.
+                Examples are the name of a person, the VAT number of a company and so on.
+            </dd>
+            <dt><dfn id="dfn-relationship">relationship</dfn></dt>
+            <dd>
+                An entity and its attributes are connected with each other using relationships.
+                A relationship describes how a attribute relates to its entity.
+            </dd>
+            <dt><dfn id="dfn-constraints">constraints</dfn></dt>
+            <dd>
+               A constraint is a condition on data which should be satisfied. Several types of constraints exist,
+               e.g. a datatype constraint on a property restricts the value of that property to be of a specific datatype
+               and a cardinality constraint on a property restricts the number of that property.
+            </dd>
+            <dt><dfn id="dfn-data-shape">data shape</dfn></dt>
+            <dd>
+               A data shape is a set of conditions on RDF data.
+               It provides context for constraints, i.e. a datatype constraint can be used
+               in different data shapes which corresponds to different contexts.
+            </dd>
+            <dt><dfn id="dfn-node-shape">node shape</dfn></dt>
+            <dd>
+               A node shape is a specific data shape which represents conditions on nodes,
+               i.e. subjects and objects of triples.
+            </dd>
+            <dt><dfn id="dfn-property-shape">property shape</dfn></dt>
+            <dd>
+               A property shape is a specific data shape which represents conditions on properties and their values,
+               i.e. predicates and related objects of triples.
+            </dd>
+            <dt><dfn id="dfn-closed-data-shape">closed data shape</dfn></dt>
+            <dd>
+               A closed data shape may only have values for the properties explicitly enumerated via property shapes.
+            </dd>
+            <dt><dfn id="dfn-severity">severity</dfn></dt>
+            <dd>
+               Each data shape has a severity which qualifies the violation of the stated conditions.
+               By default a data shape has the severity "violation" but other severities can be defined,
+               i.e. the SHACL core specifies the three severities "violation", "warning" and "information".
+            </dd>
+        </dl>
+    </section>
+    <section>
+        <h2>Visualization</h2>
+
+        <dl>
+            <dt><dfn id="dfn-node">node</dfn></dt>
+            <dd>
+                A node is a visual representation of either an entity or an attribute.
+            </dd>
+            <dt><dfn id="dfn-edge">edge</dfn></dt>
+            <dd>
+                An edge is a line connecting two nodes.
+                It represents the relationship between two entities or one entity and one attribute.
+            </dd>
+            <dt><dfn id="dfn-graph">graph</dfn></dt>
+            <dd>
+                A graph is a collection of nodes and edges.
+            </dd>
+        </dl>
+    </section>
+</section>
+
+<!--<section>
+    <h2>Conformance</h2>
+</section>
+-->
+
+<section>
+    <h2>Graphical Primitives</h2>
+
+    <table id="tab-vis-prim" class="small-images">
+        <tr>
+            <th>Name</th>
+            <th>Primitive</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>circle</td>
+            <td><img src="./images/primitives/circle.svg"/></td>
+            <td>
+                <ul>
+                  <li>node shape</li>
+                  <li>value of a property shape</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>rectangle</td>
+            <td><img src="./images/primitives/rectangle.svg"/></td>
+            <td>
+                <ul>
+                  <li>relationship label</li>
+                  <li>literal</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>line</td>
+            <td><img src="./images/primitives/solid-edge.svg"/></td>
+            <td>
+                <ul>
+                    <li>relationship</li>
+                    <li>border of data shapes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td rowspan="2">line style</td>
+            <td><img src="./images/primitives/line-style-solid.svg"/></td>
+            <td>
+                <ul>
+                    <li>relationship</li>
+                    <li>border of a circle or literal</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="./images/primitives/dashed-edge.svg"/></td>
+            <td>
+                <ul>
+                    <li>relationship between data shapes</li>
+                    <li>border of deactivated data shapes</li>
+                </ul>
+            </td>
+        </tr>
+
+       <tr>
+            <td>arrowhead</td>
+            <td><img src="./images/primitives/arrow-head.svg"/></td>
+            <td>
+                 relationship direction
+            </td>
+        </tr>
+       <tr>
+            <td>text</td>
+            <td>text</td>
+            <td>labels, constraints and other textual information</td>
+        </tr>
+   </table>
+</section>
+</section>
+
+<section id="sec-colors">
+    <h2>Colors</h2>
+
+    <section>
+        <h2>General</h2>
+
+        <table id="tab-general-colors">
+            <tr>
+                <th>Abstract Color Name</th>
+                <th colspan="2">Concrete Color Recommendation</th>
+                <th>Description</th>
+                <th>Application</th>
+            </tr>
+            <tr>
+                <td class="side">canvas</td>
+                <td>#ffffff</td>
+                <td>white</td>
+                <td>Bright color with a good contrast to all other colors.</td>
+                <td>canvas where are all other graph elements are shown on</td>
+            </tr>
+            <tr>
+                <td class="side">foreground</td>
+                <td style="background: #000000; color: #ffffff">#000000</td>
+                <td>black</td>
+                <td>Very dark color with a good contrast to all other colors.</td>
+                <td>border of elements and edges</td>
+            </tr>
+            <tr>
+                <td class="side">base color</td>
+                <td colspan="2">see next table</td>
+                <td>We reuse the color scheme of VOWL.</td>
+                <td>standard fill color of elements</td>
+            </tr>
+            <tr>
+                <td class="side">highlight</td>
+                <td colspan="2">see next table</td>
+                <td>For each data shape the highlight color is a darker shade of the
+                    base color of that element.
+                </td>
+                <td>fill color of the graph elements when selected</td>
+            </tr>
+            <tr>
+                <td class="side">severity</td>
+                <td colspan="2">see next table</td>
+                <td>Every severity has its own color.
+                </td>
+                <td>fill color of the data shape based on its severity; default severity is violation</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="sec-color-schemas">
+        <h2>Color Schemas</h2>
+
+        <table id="tab-color-schemas">
+            <tr>
+                <th>Color Schema Name</th>
+                <th>Base Color</th>
+                <th>Highlight</th>
+            </tr>
+           <tr>
+                <td>Data shape</td>
+                <td style="background: #ffffff;">#ffffff</td>
+                <td style="background: #b7b7b7; color: #ffffff">#981c1c</td>
+            </tr>
+            <tr>
+                <td>severity violation</td>
+                <td style="background: #e06666;">#e06666</td>
+                <td style="background: #981c1c; color: #ffffff">#b7b7b7</td>
+            </tr>
+            <tr>
+                <td>severity warning</td>
+                <td style="background: #ffd966;">#ffd966</td>
+                <td style="background: #bf9000; color: #ffffff">#bf9000</td>
+            </tr>
+            <tr>
+                <td>severity information</td>
+                <td style="background: #93c47d;">#93c47d</td>
+                <td style="background: #38761d; color: #ffffff">#b7b7b7</td>
+            </tr>
+        </table>
+    </section>
+</section>
+
+
+<section>
+    <h2>Constraints</h2>
+
+    First, we provide a mapping from constraint-specific terminology to labels for the visual notation.
+    Next, we elaborate on how constraints and data shapes are visualized.
+    Finally, we provide a complete visual example.
+
+   <section>
+     <h2>Labels</h2>
+     Labels in the visual notations may differ from the terminology of RDF constraints.
+     In the following we list the mappinng between terminology and visual notation labels.
+
+    <table id="tab-terminology-mappig">
+     <tr>
+       <th>Term source</th>
+       <th>Term</th>
+       <th>Label</th>
+       <th>Description</th>
+     </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Node Shape</td>
+       <td>Node Conditions</td>
+       <td>The type of a data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Property Shape</td>
+       <td>Property Conditions</td>
+       <td>The type of a data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>IRI</td>
+       <td>IRI</td>
+       <td>The unique identifier of a data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetNode</td>
+       <td>appliesOn(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetClass</td>
+       <td>appliesOnClass(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetSubjectsOf</td>
+       <td>appliesOnSubjectsOf(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetObjectsOf</td>
+       <td>appliesOnObjectsOf(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>minCount</td>
+       <td>1..*</td>
+       <td>The inclusive min count is the left number. In case only maximum but no minimum is specified, the minimum is 0</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>maxCount</td>
+       <td>0..1</td>
+       <td>The inclusive max count is the right number. In case only minimum but no maximum is specified, the maximum is '*'</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>pattern, flags</td>
+       <td>/pattern/flags</td>
+       <td>The constraint type 'pattern', a regular expression separated with a dash from possible flags</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Xone</td>
+       <td>OneOf</td>
+       <td>The logical relationship representing exclusive or</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>node</td>
+       <td>compliesWith</td>
+       <td>The constraint type expressing that one data shape should comply with another data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>property</td>
+       <td>-</td>
+       <td>Not used, instead the property path of the property shape is displayed as label</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>qualifiedValueShape, qualifiedMinCount, qualifiedMaxCount</td>
+       <td>compliesWith, 1..2</td>
+       <td>The constraint type expressing that the specified number of a data shape should comply with another data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>ignoredProperties</td>
+       <td>otherAllowedProperties</td>
+       <td>Specifies which properties of a node are allowed even in a closed data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>in</td>
+       <td>valueIn</td>
+       <td>This constraint type specifies that a value needs to be member of a provided list</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>sequence path</td>
+       <td>property1/property2</td>
+       <td>A property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>alternative path</td>
+       <td>property1 | property2</td>
+       <td>An alternative property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>inverse path</td>
+       <td>^property1</td>
+       <td>An inverse property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>zero-or-more path</td>
+       <td>property1/property2*</td>
+       <td>Zero or more property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>One-or-more path</td>
+       <td>property1/property2+</td>
+       <td>One or more property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Zero-or-more path</td>
+       <td>property1/property2?</td>
+       <td>Zero or more property path following the SPARQL 1.1 specification</td>
+    </tr>
+
+    </table>
+
+   </section>
+
+    <section>
+        <h2>Visualization</h2> 
+        <table id="tab-visualization" class="example-table">
+            <tr>
+                <th>Visualization</th>
+                <th>Description</th>
+            </tr>
+           <tr>
+                <td style="width:100%;height:100%"><img src="./images/example-node-shape.svg" style="height:100%;width:100%" /></td>
+                <td>A node shape, constraints are attached in a note-element.</td>
+            </tr>
+            <tr>
+                <td><img src="./images/example-node-property-relation.svg" style="height:100%;width:100%"/></td>
+                <td>Conditions on a node combined with conditions on a related property.</td>
+            </tr>
+            <tr>
+                <td><img src="./images/example-one-to-many.svg" style="height:70%;width:70%" /></td>
+                <td>Conditions for nodes and related properties combined using logical operators using a one-to-many relationship.</td>
+            </tr>
+            <tr>
+                <td><img src="./images/example-data-shape-relation.svg" style="height:70%;width:70%"/></td>
+                <td>A data shape refering to other data shapes.</td>
+            </tr>
+        </table>
+ 
+   </section>
+
+
+
+    <section>
+        <h2>Example</h2>
+        <p>
+            Below you can find an example for constraints expressed with ShapeVOWL.
+        </p>
+
+        <figure id="example-highest"> 
+            <img src="images/example-highest-color.svg" style="height:100%;width:100%" />
+            <figcaption>A person should not be an anonymous entity, also it should either have at least one schema:givenName property
+            and at least one schema:familyName property, or exactly one ex:fullName property; all names of datatype xsd:string.
+            Additionally, a person should have at least one and maximum two addresses,
+            from which at least one address must comply with the linked existing data shapes.</figcaption>
+        </figure>
+   </section>
+</section>
+
+</body>
+</html>
