@@ -258,44 +258,6 @@
         </tr>
    </table>
 
-  <section>
-    <h2>Splitting rules</h2>
-    <p>
-      Node shapes can be reused by a directed dashed connection, however we recommend splitting rules for the visualization of reused property shapes as trade-off for the graph rendering.
-      Different splittings for property shapes are possible; in the following we describe three possible splitting rules for property shapes.
-      Depending on the level of detail, applications may choose one of the splitting rules.
-    </p>
-    <p>
-      Property shapes consist of two parts: a solid directed edge with the property path as label in a rectangle and a value the directed edge points too which is either a node or a literal.
-    </p>
-
-      <section>
-        <h2>Duplicate poperty shape</h2>
-
-        <p>
-          A reused property shape is visualized for each reuse, i.e. a property shape which is used <code>n</code> times will be visualized <code>n</code> times.
-        </p>
-      </section>
- 
-      <section>
-        <h2>Duplicate property path</h2>
-
-        <p>
-          The value of a reused property shape is visualized only once but the directed edge and label are visualized for each reuse.
-          I.e. a property shape which is used <code>n</code> times will be visualized by one value and <code>n</code> directed solid edges with label.
-        </p>
-      </section>
-
-      <section>
-        <h2>No duplication</h2>
-
-        <p>
-          A reused property shape is visualized only once, i.e. a property shape which is used <code>n</code> times will be visualized exactly one time
-          and will have <code>n</code> ingoing solid edges to the rectangle containing the property path.
-        </p>
-      </section>
-  </section>
-</section>
 
 <section id="sec-colors">
     <h2>Colors</h2>
@@ -405,6 +367,7 @@
 
     First, we provide a mapping from constraint-specific terminology to labels for the visual notation.
     Next, we elaborate on how constraints and data shapes are visualized.
+    Then we explain the splitting rules with respect to the visualization of property shapes.
     Finally, we provide a complete visual example.
 
    <section>
@@ -582,6 +545,45 @@
         </table>
  
    </section>
+
+  <section>
+    <h2>Splitting rules</h2>
+    <p>
+      Node shapes can be reused by a directed dashed connection, however we recommend splitting rules for the visualization of reused property shapes as trade-off for the graph rendering.
+      Different splittings for property shapes are possible; in the following we describe three possible splitting rules for property shapes.
+      Depending on the level of detail, applications may choose one of the splitting rules.
+    </p>
+    <p>
+      Property shapes consist of two parts: a solid directed edge with the property path as label in a rectangle and a value the directed edge points too which is either a node or a literal.
+    </p>
+
+      <section>
+        <h2>Duplicate poperty shape</h2>
+
+        <p>
+          A reused property shape is visualized for each reuse, i.e. a property shape which is used <code>n</code> times will be visualized <code>n</code> times.
+        </p>
+      </section>
+ 
+      <section>
+        <h2>Duplicate property path</h2>
+
+        <p>
+          The value of a reused property shape is visualized only once but the directed edge and label are visualized for each reuse.
+          I.e. a property shape which is used <code>n</code> times will be visualized by one value and <code>n</code> directed solid edges with label.
+        </p>
+      </section>
+
+      <section>
+        <h2>No duplication</h2>
+
+        <p>
+          A reused property shape is visualized only once, i.e. a property shape which is used <code>n</code> times will be visualized exactly one time
+          and will have <code>n</code> ingoing solid edges to the rectangle containing the property path.
+        </p>
+      </section>
+  </section>
+</section>
 
 
 
