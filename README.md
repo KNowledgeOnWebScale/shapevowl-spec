@@ -3,6 +3,8 @@
 The specification of ShapeVOWL,
 a visual notation for RDF constraints based on VOWL.
 
+Online available via http://w3id.org/imec/unshacled/spec/shape-vowl
+
 ## Usage
 You can update the specification by doing the following:
 
