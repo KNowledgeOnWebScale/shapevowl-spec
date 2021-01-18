@@ -1,99 +1,12 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head>
-<meta charset="utf-8">
-<meta name="generator" content="ReSpec 26.0.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<style>
-dfn{cursor:pointer}
-.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
-.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
-.dfn-panel *{margin:0}
-.dfn-panel b{display:block;color:#000;margin-top:.25em}
-.dfn-panel ul a[href]{color:#333}
-.dfn-panel>div{display:flex}
-.dfn-panel a.self-link{font-weight:700;margin-right:auto}
-.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
-.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
-.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
-.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
-.dfn-panel a[href]:hover{border-bottom-width:1px}
-.dfn-panel ul{padding:0}
-.dfn-panel li{margin-left:1em}
-.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
-</style>
-    
-<title>ShapeVOWL: RDF Constraints Visualization based on VOWL</title>
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 25.6.0"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ShapeVOWL: RDF Constraints Visualization based on VOWL</title>
     
 
-    
-<link rel="stylesheet" type="text/css" href="./resources/css/style.css">
-    
-<link rel="stylesheet" type="text/css" href="./resources/css/extras.css">
-    
-    
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
 
-<style id="respec-mainstyle">
-@keyframes pop{
-0%{transform:scale(1,1)}
-25%{transform:scale(1.25,1.25);opacity:.75}
-100%{transform:scale(1,1)}
-}
-.hljs{background:0 0!important}
-a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}
-dfn{font-weight:700}
-a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
-a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
-a.bibref{text-decoration:none}
-.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
-.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
-@supports not (text-decoration:red wavy underline){
-.respec-offending-element:not(pre){display:inline-block}
-.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
-}
-#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-cite .bibref{font-style:normal}
-code{color:#c63501}
-th code{color:inherit}
-a[href].orcid{padding-left:4px;padding-right:4px}
-a[href].orcid>svg{margin-bottom:-2px}
-.toc a,.tof a{text-decoration:none}
-a .figno,a .secno{color:#000}
-ol.tof,ul.tof{list-style:none outside none}
-.caption{margin-top:.5em;font-style:italic}
-table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-.simple th a{color:#fff;padding:3px 5px;text-align:left}
-.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-.simple td{padding:3px 10px;border-top:1px solid #ddd}
-.simple tr:nth-child(even){background:#f0f6ff}
-.section dd>p:first-child{margin-top:0}
-.section dd>p:last-child{margin-bottom:0}
-.section dd{margin-bottom:1em}
-.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
-#issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
-details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
-details.respec-tests-details>*{padding-right:2em}
-details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
-details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
-details.respec-tests-details>ul{width:100%;margin-top:-.3em}
-details.respec-tests-details>li{padding-left:1em}
-a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
-h2,h3,h4,h5,h6{position:relative}
-aside.example .marker>a.self-link{color:inherit}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
-h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}
-@media (max-width:767px){
-dd{margin-left:0}
-h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}
-}
-@media print{
-.removeOnSave{display:none}
-}
-</style>
-<style type="text/css">
-/* Copyright 2014-present Evernote Corporation. All rights reserved. */
+    
+    
+<style type="text/css">/* Copyright 2014-present Evernote Corporation. All rights reserved. */
 @keyframes caretBlink {
     from { opacity: 1.0; }
     to { opacity: 0.0; }
@@ -132,10 +45,7 @@ h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
-
-</style>
-<style type="text/css">
-/* Copyright 2014-present Evernote Corporation. All rights reserved. */
+</style><style type="text/css">/* Copyright 2014-present Evernote Corporation. All rights reserved. */
 .skitchToastBoxContainer {
     position: absolute;
     width: 100%;
@@ -184,10 +94,7 @@ h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:
 .skitchVisible {
     /* Don't remove this class it's a hack used by the Evernote Clipper */
 }
-
-</style>
-<style type="text/css">
-/* Copyright 2014-present Evernote Corporation. All rights reserved. */
+</style><style type="text/css">/* Copyright 2014-present Evernote Corporation. All rights reserved. */
 
 @font-face {
 	font-family: 'Soleil';
@@ -195,10 +102,7 @@ h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:
 	font-weight: normal;
 	font-style: normal;
 }
-
-</style>
-<style type="text/css">
-/* Copyright 2019-present Evernote Corporation. All rights reserved. */
+</style><style type="text/css">/* Copyright 2019-present Evernote Corporation. All rights reserved. */
 
 #en-markup-disabled {
     position: fixed;
@@ -277,49 +181,15 @@ h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:
     width: 110px;
     height: 36px;
 }
-
-</style>
-<meta name="description" content="This document  defines ShapeVOWL, a visual notation for RDF constraints.
-It specifies the visualization primitives to represent constraints to users.">
-<style>
-var{position:relative;cursor:pointer}
-var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
-var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
-var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
-var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
-</style>
-<script id="initialUserConfig" type="application/json">{
+</style><style id="respec-mainstyle">@keyframes pop{0%{transform:scale(1,1)}25%{transform:scale(1.25,1.25);opacity:.75}100%{transform:scale(1,1)}}.hljs{background:0 0!important}a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}dfn{font-weight:700}a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}a.bibref{text-decoration:none}.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}@supports not (text-decoration:red wavy underline){.respec-offending-element:not(pre){display:inline-block}.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}}#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}cite .bibref{font-style:normal}code{color:#c63501}th code{color:inherit}a[href].orcid{padding-left:4px;padding-right:4px}a[href].orcid>svg{margin-bottom:-2px}.toc a,.tof a{text-decoration:none}a .figno,a .secno{color:#000}ol.tof,ul.tof{list-style:none outside none}.caption{margin-top:.5em;font-style:italic}table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}.simple th a{color:#fff;padding:3px 5px;text-align:left}.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}.simple td{padding:3px 10px;border-top:1px solid #ddd}.simple tr:nth-child(even){background:#f0f6ff}.section dd>p:first-child{margin-top:0}.section dd>p:last-child{margin-bottom:0}.section dd{margin-bottom:1em}.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}#issue-summary>ul,.respec-dfn-list{column-count:2}#issue-summary li,.respec-dfn-list li{list-style:none}details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}details.respec-tests-details>*{padding-right:2em}details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}details.respec-tests-details>ul{width:100%;margin-top:-.3em}details.respec-tests-details>li{padding-left:1em}a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}h2,h3,h4,h5,h6{position:relative}aside.example .marker>a.self-link{color:inherit}h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}@media (max-width:767px){dd{margin-left:0}h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}}@media print{.removeOnSave{display:none}}</style><meta name="description" content="This document  defines ShapeVOWL, a visual notation for RDF constraints. It specifies the visualization primitives to represent constraints to users."><style>var{position:relative;cursor:pointer}var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}</style><script id="initialUserConfig" type="application/json">{
   "specStatus": "unofficial",
-  "shortName": "shape-vowl",
+  "shortName": "constraints-visualization-vowl",
   "authors": [
     {
       "name": "Sven Lieber",
       "url": "https://sven-lieber.org",
       "mailto": "sven.lieber@ugent.be",
       "company": "Ghent University — IDLab — imec"
-    }
-  ],
-  "doRdfa": "true",
-  "copyrightStart": "2020",
-  "edDraftURI": "https://w3id.org/imec/unshacled/spec/shape-vowl/",
-  "otherLinks": [
-    {
-      "key": "This Version",
-      "data": [
-        {
-          "value": "https://w3id.org/imec/unshacled/spec/shape-vowl/%thisDate%/",
-          "href": "https://w3id.org/imec/unshacled/spec/shape-vowl/%thisDate%/"
-        }
-      ]
-    },
-    {
-      "key": "Previous Version",
-      "data": [
-        {
-          "value": "https://w3id.org/imec/unshacled/spec/shape-vowl/%prevDate%/",
-          "href": "https://w3id.org/imec/unshacled/spec/shape-vowl/%prevDate%/"
-        }
-      ]
     }
   ],
   "editors": [
@@ -376,20 +246,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "mapvowl"
     }
   },
-  "publishISODate": "2021-01-18T00:00:00.000Z",
-  "generatedSubtitle": "Unofficial Draft 18 January 2021"
-}</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-UD"></head>
+  "publishISODate": "2020-06-22T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 22 June 2020"
+}</script><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-UD"></head>
 <body class="h-entry informative"><div class="head">
-     <h1 id="title" class="title">ShapeVOWL: RDF Constraints Visualization based on VOWL</h1>
+    <a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a> <h1 id="title" class="title">ShapeVOWL: RDF Constraints Visualization based on VOWL</h1>
     
     <h2>
       Unofficial Draft
-      <time class="dt-published" datetime="2021-01-18">18 January 2021</time>
+      <time class="dt-published" datetime="2020-06-22">22 June 2020</time>
     </h2>
     <dl>
       
-      <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/imec/unshacled/spec/shape-vowl/">https://w3id.org/imec/unshacled/spec/shape-vowl/</a></dd>
+      
       
       
       
@@ -398,12 +267,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <dt>Editors:</dt>
       <dd class="p-author h-card vcard"><a class="ed_mailto u-email email p-name" href="mailto:sven.lieber@ugent.be">Sven Lieber</a> (Ghent University — IDLab — imec) </dd><dd class="p-author h-card vcard"><span class="p-name fn">Anastasia Dimou</span> (Ghent University — IDLab — imec) </dd>
       
-      <dt>Author:</dt><dd class="p-author h-card vcard"><a class="ed_mailto u-email email p-name" href="mailto:sven.lieber@ugent.be">Sven Lieber</a> (Ghent University — IDLab — imec) </dd>
-      <dt>This Version:</dt><dd>
-    <a href="https://w3id.org/imec/unshacled/spec/shape-vowl/%thisDate%/">https://w3id.org/imec/unshacled/spec/shape-vowl/%thisDate%/</a>
-  </dd><dt>Previous Version:</dt><dd>
-    <a href="https://w3id.org/imec/unshacled/spec/shape-vowl/%prevDate%/">https://w3id.org/imec/unshacled/spec/shape-vowl/%prevDate%/</a>
-  </dd>
+      <dt>
+              Author:
+            </dt><dd class="p-author h-card vcard"><a class="ed_mailto u-email email p-name" href="mailto:sven.lieber@ugent.be">Sven Lieber</a> (Ghent University — IDLab — imec) </dd>
+      
     </dl>
     
     
@@ -414,507 +281,545 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         </p>
     <hr title="Separator for header">
   </div>
-<section id="abstract" class="introductory"><h2>Abstract</h2><p>This document  defines ShapeVOWL, a visual notation for RDF constraints.
-It specifies the visualization primitives to represent constraints to users.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#general"><bdi class="secno">2.1 </bdi>General</a></li><li class="tocline"><a class="tocxref" href="#visualization"><bdi class="secno">2.2 </bdi>Visualization</a></li></ol></li><li class="tocline"><a class="tocxref" href="#graphical-primitives"><bdi class="secno">3. </bdi>Graphical Primitives</a></li><li class="tocline"><a class="tocxref" href="#colors"><bdi class="secno">4. </bdi>Colors</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#general-0"><bdi class="secno">4.1 </bdi>General</a></li><li class="tocline"><a class="tocxref" href="#color-schemas"><bdi class="secno">4.2 </bdi>Color Schemas</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constraints"><bdi class="secno">5. </bdi>Constraints</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#semantic-constructs-0"><bdi class="secno">5.1 </bdi>Semantic constructs</a></li><li class="tocline"><a class="tocxref" href="#splitting-rules"><bdi class="secno">5.2 </bdi>Splitting rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#duplicate-property-shape"><bdi class="secno">5.2.1 </bdi>Duplicate property shape</a></li><li class="tocline"><a class="tocxref" href="#duplicate-property-path"><bdi class="secno">5.2.2 </bdi>Duplicate property path</a></li><li class="tocline"><a class="tocxref" href="#no-duplication"><bdi class="secno">5.2.3 </bdi>No duplication</a></li></ol></li><li class="tocline"><a class="tocxref" href="#example"><bdi class="secno">5.3 </bdi>Example</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.1 </bdi>Informative references</a></li></ol></li></ol></nav>
+<section id="abstract" class="introductory"><h2>Abstract</h2>
     <p>
-        This document is the result of ongoing research.
+
+      This document  defines ShapeVOWL, a visual notation for RDF constraints. It specifies the visualization primitives to represent constraints to users.
+      
+    </p>
+</section>
+
+<section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
+      This document is draft of a potential specification. It has no official
+      standing of any kind and does not represent the support or consensus of
+      any standards organization.
+    </p>
+    <p>
+        This document is the result of research and the accompanying paper is currently under submission at the 22nd International Conference on Knowledge Engineering and Knowledge Management (EKAW 2020).
+    </p>
+</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#general"><bdi class="secno">2.1 </bdi>General</a></li><li class="tocline"><a class="tocxref" href="#visualization"><bdi class="secno">2.2 </bdi>Visualization</a></li></ol></li><li class="tocline"><a class="tocxref" href="#graphical-primitives"><bdi class="secno">3. </bdi>Graphical Primitives</a></li><li class="tocline"><a class="tocxref" href="#sec-colors"><bdi class="secno">4. </bdi>Colors</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#general-0"><bdi class="secno">4.1 </bdi>General</a></li><li class="tocline"><a class="tocxref" href="#sec-color-schemas"><bdi class="secno">4.2 </bdi>Color Schemas</a></li></ol></li><li class="tocline"><a class="tocxref" href="#constraints"><bdi class="secno">5. </bdi>Constraints</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#labels"><bdi class="secno">5.1 </bdi>Labels</a></li><li class="tocline"><a class="tocxref" href="#visualization-0"><bdi class="secno">5.2 </bdi>Visualization</a></li><li class="tocline"><a class="tocxref" href="#splitting-rules"><bdi class="secno">5.3 </bdi>Splitting rules</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#duplicate-poperty-shape"><bdi class="secno">5.3.1 </bdi>Duplicate poperty shape</a></li><li class="tocline"><a class="tocxref" href="#duplicate-property-path"><bdi class="secno">5.3.2 </bdi>Duplicate property path</a></li><li class="tocline"><a class="tocxref" href="#no-duplication"><bdi class="secno">5.3.3 </bdi>No duplication</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#example"><bdi class="secno">6. </bdi>Example</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.1 </bdi>
+        Informative references
+      </a></li></ol></li></ol></nav>
+
+<section class="informative" id="introduction">
+    <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2><p><em>This section is non-normative.</em></p>
+    <p>
+        Knowledge Graphs defined with the Resource Description Framework [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf" title="RDF 1.1 Concepts and Abstract Syntax">RDF</a></cite>] consist of vocabulary terms and instance data both described using the graph model of RDF.
+        Several constraint languages exist to define conditions on such RDF graphs, one such language is the W3C recommended Shapes Constraint Language [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>]
+        which itself is represented using RDF.
+        Users rely on different types of constraints offered by constraint languages to define conditions on RDF graphs.
+    </p>
+    <p>
+        RDF follows a graph model which intuitively can be represented using nodes and edges.
+        The Visual Notation for OWL Ontologies [<cite><a class="bibref" data-link-type="biblio" href="#bib-vowl" title="Visual Notation for OWL Ontologies (VOWL)">VOWL</a></cite>] leverages this graph model to visualize ontologies, the vocabulary of terms of Knowledge Graphs.
+        Besides this, VOWL-based visual notations were also used for the RDF Query Language SPARQL [<cite><a class="bibref" data-link-type="biblio" href="#bib-queryvowl" title="QueryVOWL">QueryVOWL</a></cite>], used to query RDF data, and
+        for the RDF Mapping Language (RML) [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>], used to transform structured data to RDF.
+        ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RDF constraints.
+    </p>
+</section>
+
+
+
+<section id="terminology">
+    <h2 id="x2-terminology"><bdi class="secno">2. </bdi>Terminology<a class="self-link" aria-label="§" href="#terminology"></a></h2>
+
+        Throughout the document, the following terminology is used.
+
+    <section id="general">
+        <h3 id="x2-1-general"><bdi class="secno">2.1 </bdi>General<a class="self-link" aria-label="§" href="#general"></a></h3>
+
+        <dl>
+            <dt><dfn id="dfn-entity" data-dfn-type="dfn">(anonymous) entity</dfn></dt>
+            <dd>
+                An entity is something that exists as a distinct, independent, or self-contained unit.
+                Examples are people, companies, buildings and so on.
+                If you want to uniquely address an entity then it needs to have a unique name.
+                Therefore, entities use HTTP URIs.
+                However, when a entity does not have a URI we call it an <span class="emph">anonymous</span> entity [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-attribute" data-dfn-type="dfn">attribute</dfn></dt>
+            <dd>
+                More information is provided about an entity by adding attribute to it.
+                Examples are the name of a person, the VAT number of a company and so on [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-relationship" data-dfn-type="dfn">relationship</dfn></dt>
+            <dd>
+                An entity and its attributes are connected with each other using relationships.
+                A relationship describes how a attribute relates to its entity [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-constraints" data-dfn-type="dfn">constraints</dfn></dt>
+            <dd>
+               A constraint is a condition on data which should be satisfied. Several types of constraints exist,
+               e.g. a datatype constraint on a property restricts the value of that property to be of a specific datatype
+               and a cardinality constraint on a property restricts the number of that property [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl-core-constraints" title="Shapes Constraint Langauge (SHACL) - Constraint Types">SHACL-core-constraints</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-data-shape" data-dfn-type="dfn">data shape</dfn></dt>
+            <dd>
+               A data shape is a set of conditions on RDF data.
+               It provides context for constraints, i.e. a datatype constraint can be used
+               in different data shapes which corresponds to different contexts [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl-abstract" title="Shapes Constraint Langauge (SHACL) - Abstract">SHACL-abstract</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-node-shape" data-dfn-type="dfn">node shape</dfn></dt>
+            <dd>
+               A node shape is a specific data shape which represents conditions on nodes,
+               i.e. subjects and objects of triples [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-property-shape" data-dfn-type="dfn">property shape</dfn></dt>
+            <dd>
+               A property shape is a specific data shape which represents conditions on properties and their values,
+               i.e. predicates and related objects of triples [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-closed-data-shape" data-dfn-type="dfn">closed data shape</dfn></dt>
+            <dd>
+               A closed data shape may only have values for the properties explicitly enumerated via property shapes [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-severity" data-dfn-type="dfn">severity</dfn></dt>
+            <dd>
+               Each data shape has a severity which qualifies the violation of the stated conditions, i.e. it categorizes validation results [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
+               By default a data shape has the severity "violation" but other severities can be defined,
+               i.e. the SHACL core specifies the three severities "violation", "warning" and "information".
+            </dd>
+        </dl>
+    </section>
+    <section id="visualization">
+        <h3 id="x2-2-visualization"><bdi class="secno">2.2 </bdi>Visualization<a class="self-link" aria-label="§" href="#visualization"></a></h3>
+
+        <dl>
+            <dt><dfn id="dfn-node" data-dfn-type="dfn">node</dfn></dt>
+            <dd>
+                A node is a visual representation of either an entity or an attribute [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-edge" data-dfn-type="dfn">edge</dfn></dt>
+            <dd>
+                An edge is a line connecting two nodes.
+                It represents the relationship between two entities or one entity and one attribute [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
+            </dd>
+            <dt><dfn id="dfn-graph" data-dfn-type="dfn">graph</dfn></dt>
+            <dd>
+                A graph is a collection of nodes and edges [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
+            </dd>
+        </dl>
+    </section>
+</section>
+
+
+
+<section id="graphical-primitives">
+    <h2 id="x3-graphical-primitives"><bdi class="secno">3. </bdi>Graphical Primitives<a class="self-link" aria-label="§" href="#graphical-primitives"></a></h2>
+
+    <table id="tab-vis-prim" class="small-images">
+        <tbody><tr>
+            <th>Name</th>
+            <th>Primitive</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>circle</td>
+            <td><img src="../resources/images/primitives/circle.svg" height="150" width="179"></td>
+            <td>
+                <ul>
+                  <li>node shape</li>
+                  <li>value of a property shape</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>rectangle</td>
+            <td><img src="../resources/images/primitives/rectangle.svg" height="150" width="179"></td>
+            <td>
+                <ul>
+                  <li>relationship label</li>
+                  <li>literal</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>solid line</td>
+            <td><img src="../resources/images/primitives/solid-edge.svg" height="150" width="179"></td>
+            <td>
+                <ul>
+                    <li>relationship between a node and a property shape</li>
+                </ul>
+            </td>
+        </tr>
+       <tr>
+            <td>dashed line</td>
+            <td><img src="../resources/images/primitives/dashed-edge.svg" height="150" width="204"></td>
+            <td>
+                <ul>
+                    <li>relationship between nodes and data shapes or property shapes and node shapes (not between node shapes and property shapes)</li>
+                    <li>border of deactivated data shapes</li>
+                </ul>
+            </td>
+        </tr>
+
+       <tr>
+            <td>arrowhead</td>
+            <td><img src="../resources/images/primitives/arrow-head.svg" height="150" width="179"></td>
+            <td>
+                 relationship direction
+            </td>
+        </tr>
+       <tr>
+            <td>text</td>
+            <td>text</td>
+            <td>labels, constraints and other textual information</td>
+        </tr>
+   </tbody></table>
+
+</section>
+<section id="sec-colors">
+    <h2 id="x4-colors"><bdi class="secno">4. </bdi>Colors<a class="self-link" aria-label="§" href="#sec-colors"></a></h2>
+
+    <section id="general-0">
+        <h3 id="x4-1-general"><bdi class="secno">4.1 </bdi>General<a class="self-link" aria-label="§" href="#general-0"></a></h3>
+
+        <table id="tab-general-colors">
+            <tbody><tr>
+                <th>Abstract Color Name</th>
+                <th colspan="2">Concrete Color Recommendation</th>
+                <th>Description</th>
+                <th>Application</th>
+            </tr>
+            <tr>
+                <td class="side">canvas</td>
+                <td>#ffffff</td>
+                <td>white</td>
+                <td>Bright color with a good contrast to all other colors.</td>
+                <td>canvas where are all other graph elements are shown on</td>
+            </tr>
+            <tr>
+                <td class="side">foreground</td>
+                <td style="background: #000000; color: #ffffff">#000000</td>
+                <td>black</td>
+                <td>Very dark color with a good contrast to all other colors.</td>
+                <td>border of elements and edges</td>
+            </tr>
+            <tr>
+                <td class="side">base color</td>
+                <td colspan="2">see next table</td>
+                <td>We reuse the color 'general' of VOWL.</td>
+                <td>standard fill color of data shapes</td>
+            </tr>
+            <tr>
+                <td class="side">datatype color</td>
+                <td style="background: #ffcc33;">#ffcc33</td>
+                <td>yellow</td>
+                <td>We reuse the color 'datatype' of VOWL.</td>
+                <td>standard fill color of literals</td>
+            </tr>
+            <tr>
+                <td class="side">deactivated</td>
+                <td colspan="2">see next table</td>
+                <td>We reuse the color 'deprecated' of VOWL.</td>
+                <td>fill color for deactivated data shapes</td>
+            </tr>
+            <tr>
+                <td class="side">highlight</td>
+                <td colspan="2">see next table</td>
+                <td>For each data shape the highlight color is a darker shade of the
+                    base color of that element.
+                </td>
+                <td>fill color of the graph elements when selected</td>
+            </tr>
+            <tr>
+                <td class="side">severity</td>
+                <td colspan="2">see next table</td>
+                <td>Every severity has its own color. This is alternative to the base color.
+                </td>
+                <td>fill color of the data shape based on its severity; default severity is violation</td>
+            </tr>
+        </tbody></table>
+    </section>
+
+    <section id="sec-color-schemas">
+        <h3 id="x4-2-color-schemas"><bdi class="secno">4.2 </bdi>Color Schemas<a class="self-link" aria-label="§" href="#sec-color-schemas"></a></h3>
+
+        <table id="tab-color-schemas">
+            <tbody><tr>
+                <th>Color Schema Name</th>
+                <th>Base Color</th>
+                <th>Highlight</th>
+            </tr>
+            <tr>
+                <td>base color</td>
+                <td style="background: #aaccff;">#aaccff</td>
+                <td style="background: #1155cc; color: #ffffff">#1155cc</td>
+            </tr>
+            <tr>
+                <td>deactivated</td>
+                <td style="background: #cccccc;">#cccccc</td>
+                <td style="background: #999999; color: #ffffff">#999999</td>
+            </tr>
+            <tr>
+                <td>severity violation</td>
+                <td style="background: #e06666;">#e06666</td>
+                <td style="background: #981c1c; color: #ffffff">#b7b7b7</td>
+            </tr>
+            <tr>
+                <td>severity warning (light yellow different from datatype color)</td>
+                <td style="background: #ffd966;">#ffd966</td>
+                <td style="background: #bf9000; color: #ffffff">#bf9000</td>
+            </tr>
+            <tr>
+                <td>severity information</td>
+                <td style="background: #93c47d;">#93c47d</td>
+                <td style="background: #38761d; color: #ffffff">#b7b7b7</td>
+            </tr>
+        </tbody></table>
+    </section>
+</section>
+
+
+<section id="constraints">
+    <h2 id="x5-constraints"><bdi class="secno">5. </bdi>Constraints<a class="self-link" aria-label="§" href="#constraints"></a></h2>
+
+    First, we provide a mapping from constraint-specific terminology to labels for the visual notation.
+    Next, we elaborate on how constraints and data shapes are visualized.
+    Then we explain the splitting rules with respect to the visualization of property shapes.
+    Finally, we provide a complete visual example.
+
+   <section id="labels">
+     <h3 id="x5-1-labels"><bdi class="secno">5.1 </bdi>Labels<a class="self-link" aria-label="§" href="#labels"></a></h3>
+     Labels in the visual notations may differ from the terminology of RDF constraints.
+     In the following we list the mappinng between terminology and visual notation labels.
+
+    <table id="tab-terminology-mappig">
+     <tbody><tr>
+       <th>Term source</th>
+       <th>Term</th>
+       <th>Label</th>
+       <th>Description</th>
+     </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Node Shape</td>
+       <td>Node Conditions</td>
+       <td>The type of a data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Property Shape</td>
+       <td>Property Conditions</td>
+       <td>The type of a data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>IRI</td>
+       <td>IRI</td>
+       <td>The unique identifier of a data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetNode</td>
+       <td>appliesOn(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetClass</td>
+       <td>appliesOnClass(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetSubjectsOf</td>
+       <td>appliesOnSubjectsOf(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>targetObjectsOf</td>
+       <td>appliesOnObjectsOf(x)</td>
+       <td>Specifies on which data a data shape applies by default</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>minCount</td>
+       <td>1..*</td>
+       <td>The inclusive min count is the left number. In case only maximum but no minimum is specified, the minimum is 0</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>maxCount</td>
+       <td>0..1</td>
+       <td>The inclusive max count is the right number. In case only minimum but no maximum is specified, the maximum is '*'</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>pattern, flags</td>
+       <td>/pattern/flags</td>
+       <td>The constraint type 'pattern', a regular expression separated with a dash from possible flags</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Xone</td>
+       <td>OneOf</td>
+       <td>The logical relationship representing exclusive or</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>node</td>
+       <td>compliesWith</td>
+       <td>The constraint type expressing that one data shape should comply with another data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>property</td>
+       <td>-</td>
+       <td>Not used, instead the property path of the property shape is displayed as label</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>qualifiedValueShape, qualifiedMinCount, qualifiedMaxCount</td>
+       <td>compliesWith, 1..2</td>
+       <td>The constraint type expressing that the specified number of a data shape should comply with another data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>ignoredProperties</td>
+       <td>otherAllowedProperties</td>
+       <td>Specifies which properties of a node are allowed even in a closed data shape</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>in</td>
+       <td>valueIn</td>
+       <td>This constraint type specifies that a value needs to be member of a provided list</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>sequence path</td>
+       <td>property1/property2</td>
+       <td>A property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>alternative path</td>
+       <td>property1 | property2</td>
+       <td>An alternative property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>inverse path</td>
+       <td>^property1</td>
+       <td>An inverse property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>zero-or-more path</td>
+       <td>property1/property2*</td>
+       <td>Zero or more property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>One-or-more path</td>
+       <td>property1/property2+</td>
+       <td>One or more property path following the SPARQL 1.1 specification</td>
+    </tr>
+    <tr>
+       <td>SHACL</td>
+       <td>Zero-or-more path</td>
+       <td>property1/property2?</td>
+       <td>Zero or more property path following the SPARQL 1.1 specification</td>
+    </tr>
+
+    </tbody></table>
+
+   </section>
+
+    <section id="visualization-0">
+        <h3 id="x5-2-visualization"><bdi class="secno">5.2 </bdi>Visualization<a class="self-link" aria-label="§" href="#visualization-0"></a></h3> 
+        <table id="tab-visualization" class="example-table">
+            <tbody><tr>
+                <th>Visualization</th>
+                <th>Description</th>
+            </tr>
+           <tr>
+                <td style=""><img src="../resources/images/example-node-shape.svg" style="" height="150" width="227"></td>
+                <td>A node shape which has constraints attached in a note-element.</td>
+            </tr>
+            <tr>
+                <td><img src="../resources/images/example-node-property-relation.svg" style="" height="150" width="145"></td>
+                <td>A relationship between a node shape and a property shape: conditions of the property shape in combination with the conditions of the node shape.</td>
+            </tr>
+            <tr>
+                <td><img src="../resources/images/example-one-to-many.svg" style="" height="150" width="164"></td>
+                <td>A one-to-many relationship using logical operators.</td>
+            </tr>
+            <tr>
+                <td><img src="../resources/images/example-data-shape-relation.svg" style="" height="150" width="164"></td>
+                <td>A property shape refering to a node shape indicated by a dashed connection.</td>
+            </tr>
+        </tbody></table>
+ 
+   </section>
+
+  <section id="splitting-rules">
+    <h3 id="x5-3-splitting-rules"><bdi class="secno">5.3 </bdi>Splitting rules<a class="self-link" aria-label="§" href="#splitting-rules"></a></h3>
+    <p>
+      Node shapes can be reused by a directed dashed connection, however we recommend splitting rules for the visualization of reused property shapes as trade-off for the graph rendering.
+      Different splittings for property shapes are possible; in the following we describe three possible splitting rules for property shapes.
+      Depending on the level of detail, applications may choose one of the splitting rules.
+    </p>
+    <p>
+      Property shapes consist of two parts: a solid directed edge with the property path as label in a rectangle and a value the directed edge points too which is either a node or a literal.
     </p>
 
+      <section id="duplicate-poperty-shape">
+        <h4 id="x5-3-1-duplicate-poperty-shape"><bdi class="secno">5.3.1 </bdi>Duplicate poperty shape<a class="self-link" aria-label="§" href="#duplicate-poperty-shape"></a></h4>
 
-<section id="introduction"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2><p>Knowledge Graphs defined with the Resource Description Framework [<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf" title="RDF 1.1 Concepts and Abstract Syntax">RDF</a></cite>] consist of vocabulary terms and instance data both described using the graph model of RDF.
-Several constraint languages exist to define conditions on such RDF graphs, one such language is the W3C recommended Shapes Constraint Language [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>]
-which itself is represented using RDF.
-Users rely on different types of constraints offered by constraint languages to define conditions on RDF graphs.</p><p>RDF follows a graph model which intuitively can be represented using nodes and edges.
-The Visual Notation for OWL Ontologies [<cite><a class="bibref" data-link-type="biblio" href="#bib-vowl" title="Visual Notation for OWL Ontologies (VOWL)">VOWL</a></cite>] leverages this graph model to visualize ontologies, the vocabulary of terms of Knowledge Graphs.
-Besides this, VOWL-based visual notations were also used for the RDF Query Language SPARQL [<cite><a class="bibref" data-link-type="biblio" href="#bib-queryvowl" title="QueryVOWL">QueryVOWL</a></cite>], used to query RDF data, and
-for the RDF Mapping Language (RML) [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>], used to transform structured data to RDF.
-ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RDF constraints.</p></section>
+        <p>
+          A reused property shape is visualized for each reuse, i.e. a property shape which is used <code>n</code> times will be visualized <code>n</code> times.
+        </p>
+      </section>
+ 
+      <section id="duplicate-property-path">
+        <h4 id="x5-3-2-duplicate-property-path"><bdi class="secno">5.3.2 </bdi>Duplicate property path<a class="self-link" aria-label="§" href="#duplicate-property-path"></a></h4>
 
-<section id="terminology"><h2 id="x2-terminology"><bdi class="secno">2. </bdi>Terminology<a class="self-link" aria-label="§" href="#terminology"></a></h2><p>Throughout the document, the following terminology is used.</p><section id="general"><h3 id="x2-1-general"><bdi class="secno">2.1 </bdi>General<a class="self-link" aria-label="§" href="#general"></a></h3><dl>
-  <dt><dfn id="dfn-entity">(anonymous) entity</dfn></dt>
-  <dd>
-    An entity is something that exists as a distinct, independent, or self-contained unit.
-    Examples are people, companies, buildings and so on.
-    If you want to uniquely address an entity then it needs to have a unique name.
-    Therefore, entities use HTTP URIs.
-    However, when a entity does not have a URI we call it an <span class="emph">anonymous</span> entity [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
-  </dd>
+        <p>
+          The value of a reused property shape is visualized only once but the directed edge and label are visualized for each reuse.
+          I.e. a property shape which is used <code>n</code> times will be visualized by one value and <code>n</code> directed solid edges with label.
+        </p>
+      </section>
 
-  <dt><dfn id="dfn-attribute">attribute</dfn></dt>
-  <dd>
-    More information is provided about an entity by adding attribute to it.
-    Examples are the name of a person, the VAT number of a company and so on [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
-  </dd>
+      <section id="no-duplication">
+        <h4 id="x5-3-3-no-duplication"><bdi class="secno">5.3.3 </bdi>No duplication<a class="self-link" aria-label="§" href="#no-duplication"></a></h4>
 
-  <dt><dfn id="dfn-relationship">relationship</dfn></dt>
-  <dd>
-    An entity and its attributes are connected with each other using relationships.
-    A relationship describes how a attribute relates to its entity [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
-  </dd>
+        <p>
+          A reused property shape is visualized only once, i.e. a property shape which is used <code>n</code> times will be visualized exactly one time
+          and will have <code>n</code> ingoing solid edges to the rectangle containing the property path.
+        </p>
+      </section>
+  </section>
+</section>
 
-  <dt><dfn id="dfn-constraints">constraints</dfn></dt>
-  <dd>
-    A constraint is a condition on data which should be satisfied. Several types of constraints exist,
-    e.g. a datatype constraint on a property restricts the value of that property to be of a specific datatype
-    and a cardinality constraint on a property restricts the number of that property [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl-core-constraints" title="Shapes Constraint Langauge (SHACL) - Constraint Types">SHACL-core-constraints</a></cite>].
-  </dd>
 
-  <dt><dfn id="dfn-data-shape">data shape</dfn></dt>
-  <dd>
-    A data shape is a set of conditions on RDF data [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl-abstract" title="Shapes Constraint Langauge (SHACL) - Abstract">SHACL-abstract</a></cite>].
-    It provides context for constraints, i.e. a datatype constraint can be used
-    in different data shapes which corresponds to different contexts.
-  </dd>
 
-  <dt><dfn id="dfn-node-shape">node shape</dfn></dt>
-  <dd>
-    A node shape is a specific data shape which represents conditions on nodes,
-    i.e. subjects and objects of triples [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
-  </dd>
+    <section id="example">
+        <h2 id="x6-example"><bdi class="secno">6. </bdi>Example<a class="self-link" aria-label="§" href="#example"></a></h2>
+        <p>
+            Below you can find an example for constraints expressed with ShapeVOWL.
+        </p>
 
-  <dt><dfn id="dfn-property-shape">property shape</dfn></dt>
-  <dd>
-    A property shape is a specific data shape which represents conditions on properties and their values,
-    i.e. predicates and related objects of triples [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
-  </dd>
+        <figure id="example-highest"> 
+            <img src="../resources/images/example-highest-color.svg" style="height:100%;width:100%" height="150" width="213">
+            <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">A person should not be an anonymous entity, also it should either have at least one schema:givenName property
+            and at least one schema:familyName property, or exactly one ex:fullName property; all names of datatype xsd:string.
+            Additionally, a person should have at least one and maximum two addresses,
+            from which at least one address must comply with the linked existing data shapes.</span></figcaption>
+        </figure>
+   </section>
 
-  <dt><dfn id="dfn-closed-data-shape">closed data shape</dfn></dt>
-  <dd>
-    A closed data shape may only have values for the properties explicitly enumerated via property shapes [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
-  </dd>
-
-  <dt><dfn id="dfn-severity">severity</dfn></dt>
-  <dd>
-    Each data shape has a severity which qualifies the violation of the stated conditions, i.e. it categorizes validation results [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>].
-    By default a data shape has the severity "violation" but other severities can be defined,
-    i.e. the SHACL core specifies the three severities "violation", "warning" and "information".
-  </dd>
-
-</dl></section><section id="visualization"><h3 id="x2-2-visualization"><bdi class="secno">2.2 </bdi>Visualization<a class="self-link" aria-label="§" href="#visualization"></a></h3><dl>
-
-  <dt><dfn id="dfn-node">node</dfn></dt>
-  <dd>
-    A node is a visual representation of either an entity or an attribute [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
-  </dd>
-
-  <dt><dfn id="dfn-edge">edge</dfn></dt>
-  <dd>
-    An edge is a line connecting two nodes.
-    It represents the relationship between two entities or one entity and one attribute [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
-  </dd>
-
-  <dt><dfn id="dfn-graph">graph</dfn></dt>
-  <dd>
-    A graph is a collection of nodes and edges [<cite><a class="bibref" data-link-type="biblio" href="#bib-mapvowl" title="MapVOWL">MapVOWL</a></cite>].
-  </dd>
-
-</dl></section></section>
-
-<section id="graphical-primitives"><h2 id="x3-graphical-primitives"><bdi class="secno">3. </bdi>Graphical Primitives<a class="self-link" aria-label="§" href="#graphical-primitives"></a></h2><table id="tab-vis-prim" class="small-images">
-  <tbody><tr>
-    <th>Name</th>
-    <th>Primitive</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>circle</td>
-    <td><img src="./resources/images/primitives/circle.svg"></td>
-    <td>
-      <ul>
-        <li>node shape</li>
-        <li>value of a property shape</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>rectangle</td>
-    <td><img src="./resources/images/primitives/rectangle.svg"></td>
-    <td>
-      <ul>
-        <li>relationship label</li>
-        <li>literal</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>solid line</td>
-    <td><img src="./resources/images/primitives/solid-edge.svg"></td>
-    <td>
-      <ul>
-        <li>relationship between a node and a property shape</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>dashed line</td>
-    <td><img src="./resources/images/primitives/dashed-edge.svg"></td>
-    <td>
-      <ul>
-        <li>relationship between nodes and data shapes or property shapes and node shapes (not between node shapes and property shapes)</li>
-        <li>border of deactivated data shapes</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>arrowhead</td>
-    <td><img src="./resources/images/primitives/arrow-head.svg"></td>
-    <td>
-       relationship direction
-    </td>
-  </tr>
-  <tr>
-    <td>text</td>
-    <td>text</td>
-    <td>labels, constraints and other textual information</td>
-  </tr>
- </tbody></table></section>
-
-<section id="colors"><h2 id="x4-colors"><bdi class="secno">4. </bdi>Colors<a class="self-link" aria-label="§" href="#colors"></a></h2><section id="general-0"><h3 id="x4-1-general"><bdi class="secno">4.1 </bdi>General<a class="self-link" aria-label="§" href="#general-0"></a></h3><table id="tab-general-colors">
-  <tbody><tr>
-    <th>Abstract Color Name</th>
-    <th colspan="2">Concrete Color Recommendation</th>
-    <th>Description</th>
-    <th>Application</th>
-  </tr>
-  <tr>
-    <td class="side">canvas</td>
-    <td>#ffffff</td>
-    <td>white</td>
-    <td>Bright color with a good contrast to all other colors.</td>
-    <td>canvas where are all other graph elements are shown on</td>
-  </tr>
-  <tr>
-    <td class="side">foreground</td>
-    <td style="background: #000000; color: #ffffff">#000000</td>
-    <td>black</td>
-    <td>Very dark color with a good contrast to all other colors.</td>
-    <td>border of elements and edges</td>
-  </tr>
-  <tr>
-    <td class="side">base color</td>
-    <td style="background: #aaccff;">#aaccff</td>
-    <td>VOWL blue</td>
-    <td>We reuse the color 'general' of VOWL.</td>
-    <td>standard fill color of data shapes</td>
-  </tr>
-  <tr>
-    <td class="side">datatype color</td>
-    <td style="background: #ffcc33;">#ffcc33</td>
-    <td>VOWL yellow</td>
-    <td>We reuse the color 'datatype' of VOWL.</td>
-    <td>standard fill color of literals</td>
-  </tr>
-  <tr>
-    <td class="side">highlight</td>
-    <td colspan="2">see next table</td>
-    <td>For each data shape the highlight color is a darker shade of the
-        base color of that element.
-    </td>
-    <td>fill color of the graph elements when selected</td>
-  </tr>
-  <tr>
-    <td class="side">severity</td>
-    <td colspan="2">see next table</td>
-    <td>Every severity has its own color.
-    </td>
-    <td>border color of the data shape based on its severity; default severity is violation</td>
-  </tr>
-</tbody></table></section><section id="color-schemas"><h3 id="x4-2-color-schemas"><bdi class="secno">4.2 </bdi>Color Schemas<a class="self-link" aria-label="§" href="#color-schemas"></a></h3><table id="tab-color-schemas">
-  <tbody><tr>
-    <th>Color Schema Name</th>
-    <th>Base Color</th>
-    <th>Highlight</th>
-  </tr>
-  <tr>
-    <td>base color</td>
-    <td style="background: #aaccff;">#aaccff</td>
-    <td style="background: #1155cc; color: #ffffff">#1155cc</td>
-  </tr>
-  <tr>
-    <td>severity violation</td>
-    <td style="background: #e06666;">#e06666</td>
-    <td style="background: #981c1c; color: #ffffff">#b7b7b7</td>
-  </tr>
-  <tr>
-    <td>severity warning (light yellow different from datatype color)</td>
-    <td style="background: #ffd966;">#ffd966</td>
-    <td style="background: #bf9000; color: #ffffff">#bf9000</td>
-  </tr>
-  <tr>
-    <td>severity information</td>
-    <td style="background: #93c47d;">#93c47d</td>
-    <td style="background: #38761d; color: #ffffff">#b7b7b7</td>
-   </tr>
-</tbody></table></section></section>
-
-<section id="constraints"><h2 id="x5-constraints"><bdi class="secno">5. </bdi>Constraints<a class="self-link" aria-label="§" href="#constraints"></a></h2><p>First, we provide a mapping from semantic constructs of RDF constraint languages
-to visual elements of ShapeVOWL (see figures).
-Next, we explain splitting rules with respect to the visualization of property shapes.
-Finally, we provide a complete visual example.</p><section id="semantic-constructs-0"><h3 id="x5-1-semantic-constructs"><bdi class="secno">5.1 </bdi>Semantic constructs<a class="self-link" aria-label="§" href="#semantic-constructs-0"></a></h3><p>The SHACL specification [<cite><a class="bibref" data-link-type="biblio" href="#bib-shacl" title="Shapes Constraint Langauge (SHACL)">SHACL</a></cite>] contains core constraints and other concepts relevant for data validation.
-We provide a mapping of semantic constructs to visual representations with ShapeVOWL,
-i.e. in the first figure we provide the mapping from SHACL core constraints
-and in the second figure we provide the mapping from other relevant SHACL concepts.</p><figure id="semantic-constructs"> 
-  <img src="./resources/images/2020-journal-mapping-shapevowl-core-constraints-summary.svg" style="height:100%;width:100%">
-  <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">
-    Semantic constructs of SHACL core constraints
-    and their visual representation in ShapeVOWL.
-  </span></figcaption>
-</figure><figure id="semantic-constructs"> 
-  <img src="./resources/images/2020-journal-mapping-shapevowl-other-concepts-summary.svg" style="height:100%;width:100%">
-  <figcaption>Figure <bdi class="figno">2</bdi> <span class="fig-title">
-    Semantic constructs of validation-related SHACL concepts
-    and their visual representation in ShapeVOWL.
-  </span></figcaption>
-</figure></section><section id="splitting-rules"><h3 id="x5-2-splitting-rules"><bdi class="secno">5.2 </bdi>Splitting rules<a class="self-link" aria-label="§" href="#splitting-rules"></a></h3><p>Node shapes can be reused by a directed dashed connection, however we recommend splitting rules for the visualization of reused property shapes as trade-off for the graph rendering.
-Different splittings for property shapes are possible; in the following we describe three possible splitting rules for property shapes.
-Depending on the level of detail, applications may choose one of the splitting rules.</p><p>Property shapes consist of two parts: a solid directed edge with the property path as label in a rectangle and a value the directed edge points too which is either a node or a literal.</p><section id="duplicate-property-shape"><h4 id="x5-2-1-duplicate-property-shape"><bdi class="secno">5.2.1 </bdi>Duplicate property shape<a class="self-link" aria-label="§" href="#duplicate-property-shape"></a></h4><p>A reused property shape is visualized for each reuse, i.e. a property shape which is used <code>n</code> times will be visualized <code>n</code> times.</p></section><section id="duplicate-property-path"><h4 id="x5-2-2-duplicate-property-path"><bdi class="secno">5.2.2 </bdi>Duplicate property path<a class="self-link" aria-label="§" href="#duplicate-property-path"></a></h4><p>The value of a reused property shape is visualized only once but the directed edge and label are visualized for each reuse.</p></section><section id="no-duplication"><h4 id="x5-2-3-no-duplication"><bdi class="secno">5.2.3 </bdi>No duplication<a class="self-link" aria-label="§" href="#no-duplication"></a></h4><p>A reused property shape is visualized only once, i.e. a property shape which is used <code>n</code> times will be visualized exactly one time
-and will have <code>n</code> ingoing solid edges to the rectangle containing the property path.</p></section></section><section id="example"><h3 id="x5-3-example"><bdi class="secno">5.3 </bdi>Example<a class="self-link" aria-label="§" href="#example"></a></h3><p>Below you can find an example for constraints expressed with ShapeVOWL.</p><figure id="example-shapeuml"> 
-  <img src="./resources/images/example-shapevowl.svg" style="height:100%;width:100%">
-  <figcaption>Figure <bdi class="figno">3</bdi> <span class="fig-title">
-    Constraints visualized using ShapeVOWL: A subject valid to the Person data shape should have an IRI (1),
-    at least one but maximum two <code>ex:address</code> properties (2) of class <code>schema:PostalAddress</code> (3)
-    and the object of at least one <code>ex:address</code> property should comply with the existing data shape <code>ex:validAddress</code> (4).
-    Additionally, the subject valid to person should either have exactly one <code>ex:fullName</code> or at least one <code>schema:givenName</code> (5)
-    and at least one <code>schema:familyName</code> all of datatype <code>xsd:string</code>.
-    The value of <code>ex:fullName</code> must not comply with the data shape <code>ex:organizationShape</code> (6).
-    Addresses must only have values for the property <code>postalAddress</code> with an exception for <code>rdf:type</code> (7).
-    Constraints of the <code>ex:organizationShape</code> are not considered for validation (8). 
-  ShapeVOWL also visualizes optional accompanying logos for constraint types (9).
-  </span></figcaption>
-</figure></section></section>
 
 
 
 <section id="references" class="appendix"><h2 id="a-references"><bdi class="secno">A. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="informative-references">
-    <h3 id="a-1-informative-references"><bdi class="secno">A.1 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
-    <dl class="bibliography"><dt id="bib-mapvowl">[MapVOWL]</dt><dd><a href="https://rml.io/specs/mapvowl/"><cite>MapVOWL</cite></a>.  rml.io. URL: <a href="https://rml.io/specs/mapvowl/">https://rml.io/specs/mapvowl/</a></dd><dt id="bib-queryvowl">[QueryVOWL]</dt><dd><a href="http://vowl.visualdataweb.org/queryvowl/index.html"><cite>QueryVOWL</cite></a>. URL: <a href="http://vowl.visualdataweb.org/queryvowl/index.html">http://vowl.visualdataweb.org/queryvowl/index.html</a></dd><dt id="bib-rdf">[RDF]</dt><dd><a href="https://www.w3.org/TR/rdf11-concepts/"><cite>RDF 1.1 Concepts and Abstract Syntax</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/rdf11-concepts/">https://www.w3.org/TR/rdf11-concepts/</a></dd><dt id="bib-shacl">[SHACL]</dt><dd><a href="https://www.w3.org/TR/shacl/"><cite>Shapes Constraint Langauge (SHACL)</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/shacl/">https://www.w3.org/TR/shacl/</a></dd><dt id="bib-shacl-abstract">[SHACL-abstract]</dt><dd><a href="https://www.w3.org/TR/shacl/#abstract"><cite>Shapes Constraint Langauge (SHACL) - Abstract</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/shacl/#abstract">https://www.w3.org/TR/shacl/#abstract</a></dd><dt id="bib-shacl-core-constraints">[SHACL-core-constraints]</dt><dd><a href="https://www.w3.org/TR/shacl/#core-components"><cite>Shapes Constraint Langauge (SHACL) - Constraint Types</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/shacl/#core-components">https://www.w3.org/TR/shacl/#core-components</a></dd><dt id="bib-vowl">[VOWL]</dt><dd><a href="http://vowl.visualdataweb.org/v2/"><cite>Visual Notation for OWL Ontologies (VOWL)</cite></a>. URL: <a href="http://vowl.visualdataweb.org/v2/">http://vowl.visualdataweb.org/v2/</a></dd></dl>
-  </section></section><p role="navigation" id="back-to-top">
+      <h3 id="a-1-informative-references"><bdi class="secno">A.1 </bdi>
+        Informative references
+      <a class="self-link" aria-label="§" href="#informative-references"></a></h3>
+    <dl class="bibliography">
+      <dt id="bib-mapvowl">[MapVOWL]</dt><dd><a href="https://rml.io/specs/mapvowl/"><cite>MapVOWL</cite></a>.  rml.io. URL: <a href="https://rml.io/specs/mapvowl/">https://rml.io/specs/mapvowl/</a></dd><dt id="bib-queryvowl">[QueryVOWL]</dt><dd><a href="http://vowl.visualdataweb.org/queryvowl/index.html"><cite>QueryVOWL</cite></a>. URL: <a href="http://vowl.visualdataweb.org/queryvowl/index.html">http://vowl.visualdataweb.org/queryvowl/index.html</a></dd><dt id="bib-rdf">[RDF]</dt><dd><a href="https://www.w3.org/TR/rdf11-concepts/"><cite>RDF 1.1 Concepts and Abstract Syntax</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/rdf11-concepts/">https://www.w3.org/TR/rdf11-concepts/</a></dd><dt id="bib-shacl">[SHACL]</dt><dd><a href="https://www.w3.org/TR/shacl/"><cite>Shapes Constraint Langauge (SHACL)</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/shacl/">https://www.w3.org/TR/shacl/</a></dd><dt id="bib-shacl-abstract">[SHACL-abstract]</dt><dd><a href="https://www.w3.org/TR/shacl/#abstract"><cite>Shapes Constraint Langauge (SHACL) - Abstract</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/shacl/#abstract">https://www.w3.org/TR/shacl/#abstract</a></dd><dt id="bib-shacl-core-constraints">[SHACL-core-constraints]</dt><dd><a href="https://www.w3.org/TR/shacl/#core-components"><cite>Shapes Constraint Langauge (SHACL) - Constraint Types</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/shacl/#core-components">https://www.w3.org/TR/shacl/#core-components</a></dd><dt id="bib-vowl">[VOWL]</dt><dd><a href="http://vowl.visualdataweb.org/v2/"><cite>Visual Notation for OWL Ontologies (VOWL)</cite></a>. URL: <a href="http://vowl.visualdataweb.org/v2/">http://vowl.visualdataweb.org/v2/</a></dd>
+    </dl></section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
-  </p><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-entity">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-entity">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-attribute">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-attribute">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-relationship">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-relationship">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-constraints">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-constraints">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-data-shape">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-data-shape">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-node-shape">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-node-shape">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-property-shape">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-property-shape">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-closed-data-shape">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-closed-data-shape">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-severity">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-severity">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-node">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-node">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-edge">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-edge">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-graph">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-graph">Permalink</a>
-         
-      </div>
-      <b>Referenced in:</b>
-      <ul>
-      <li>Not referenced in this document.</li>
-    </ul>
-    </aside><script id="respec-dfn-panel">(() => {
-// @ts-check
-if (document.respec) {
-  document.respec.ready.then(dfnPanel);
-} else {
-  dfnPanel();
-}
-
-function dfnPanel() {
-  /** @type {HTMLElement} */
-  let panel;
-  document.body.addEventListener("click", event => {
-    if (!(event.target instanceof HTMLElement)) return;
-
-    /** @type {HTMLElement} */
-    const el = event.target;
-
-    const action = deriveAction(el);
-    switch (action) {
-      case "show": {
-        if (panel) hidePanel(panel);
-        /** @type {HTMLElement} */
-        const dfn = el.closest("dfn, .index-term");
-        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        displayPanel(dfn, panel, { x: event.clientX, y: event.clientY });
-        break;
-      }
-      case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
-        break;
-      }
-      case "hide": {
-        hidePanel(panel);
-        break;
-      }
-    }
-  });
-}
-
-/** @param {HTMLElement} clickTarget */
-function deriveAction(clickTarget) {
-  const hitALink = !!clickTarget.closest("a");
-  if (clickTarget.closest("dfn, .index-term")) {
-    return hitALink ? null : "show";
-  }
-  if (clickTarget.closest(".dfn-panel")) {
-    if (hitALink) {
-      const clickedSelfLink = clickTarget.classList.contains("self-link");
-      return clickedSelfLink ? "hide" : "dock";
-    }
-    const panel = clickTarget.closest(".dfn-panel");
-    return panel.classList.contains("docked") ? "hide" : null;
-  }
-  if (document.querySelector(".dfn-panel:not([hidden])")) {
-    return "hide";
-  }
-  return null;
-}
-
-/**
- * @param {HTMLElement} dfn
- * @param {HTMLElement} panel
- * @param {{ x: number, y: number }} clickPosition
- */
-function displayPanel(dfn, panel, { x, y }) {
-  panel.hidden = false;
-  // distance (px) between edge of panel and the pointing triangle (caret)
-  const MARGIN = 20;
-
-  const dfnRects = dfn.getClientRects();
-  // Find the `top` offset when the `dfn` can be spread across multiple lines
-  let closestTop = 0;
-  let minDiff = Infinity;
-  for (const rect of dfnRects) {
-    const { top, bottom } = rect;
-    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
-    if (diffFromClickY < minDiff) {
-      minDiff = diffFromClickY;
-      closestTop = top;
-    }
-  }
-
-  const top = window.scrollY + closestTop + dfnRects[0].height;
-  const left = x - MARGIN;
-  panel.style.left = `${left}px`;
-  panel.style.top = `${top}px`;
-
-  // Find if the panel is flowing out of the window
-  const panelRect = panel.getBoundingClientRect();
-  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
-  if (panelRect.right > SCREEN_WIDTH) {
-    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
-    const newCaretOffset = left - newLeft;
-    panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
-    const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
-  }
-}
-
-/** @param {HTMLElement} panel */
-function hidePanel(panel) {
-  panel.hidden = true;
-  panel.classList.remove("docked");
-}
-})()</script><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
+  </p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
