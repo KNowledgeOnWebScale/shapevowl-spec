@@ -13,7 +13,7 @@ i.e. in the first figure we provide the mapping from SHACL core constraints
 and in the second figure we provide the mapping from other relevant SHACL concepts.
 
 <figure id="semantic-constructs"> 
-  <img src="./resources/images/2020-journal-mapping-shapevowl-core-constraints-summary.svg" style="height:100%;width:100%" />
+  <img src="./resources/images/2021-10-08-shapevowl-core-constraints-summary.svg" style="height:100%;width:100%" />
   <figcaption>
     Semantic constructs of SHACL core constraints
     and their visual representation in ShapeVOWL.
@@ -21,7 +21,7 @@ and in the second figure we provide the mapping from other relevant SHACL concep
 </figure>
 
 <figure id="semantic-constructs"> 
-  <img src="./resources/images/2020-journal-mapping-shapevowl-other-concepts-summary.svg" style="height:100%;width:100%" />
+  <img src="./resources/images/2021-10-08-shapevowl-other-constraints-summary.svg" style="height:100%;width:100%" />
   <figcaption>
     Semantic constructs of validation-related SHACL concepts
     and their visual representation in ShapeVOWL.
@@ -56,7 +56,7 @@ and will have <code>n</code> ingoing solid edges to the rectangle containing the
 Below you can find an example for constraints expressed with ShapeVOWL.
 
 <figure id="example-shapeuml"> 
-  <img src="./resources/images/example-shapevowl.svg" style="height:100%;width:100%" />
+  <img src="./resources/images/2021-10-08-shapevowl-example.svg" style="height:100%;width:100%" />
   <figcaption>
     Constraints visualized using ShapeVOWL: A subject valid to the Person data shape should have an IRI (1),
     at least one but maximum two <code>ex:address</code> properties (2) of class <code>schema:PostalAddress</code> (3)

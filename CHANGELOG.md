@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [20211008] - 2021-10-08
+
+### Added
+
+- Added the graphical primitive `rectangle with corners`
+
+### Changed
+
+- Adapted the images according to the new graphical primitive
+
 ## [20210118] - 2021-01-18
 
 ### Added
@@ -30,3 +40,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [20200622]: https://gitlab.ilabt.imec.be/data-validation/validation-editor/shapevowl-spec/-/tags/v1.0.0
 [20210118]: https://gitlab.ilabt.imec.be/data-validation/validation-editor/shapevowl-spec/compare/20210118...v1.0.0
+[20211008]: https://gitlab.ilabt.imec.be/data-validation/validation-editor/shapevowl-spec/compare/20211008...20210118

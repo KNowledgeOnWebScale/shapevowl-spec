@@ -7,11 +7,20 @@
     <th>Description</th>
   </tr>
   <tr>
+    <td>rectangle with round corners</td>
+    <td><img src="./resources/images/primitives/rectangle-round-corners.svg"/></td>
+    <td>
+      <ul>
+        <li>node shape</li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
     <td>circle</td>
     <td><img src="./resources/images/primitives/circle.svg"/></td>
     <td>
       <ul>
-        <li>node shape</li>
         <li>value of a property shape</li>
       </ul>
     </td>
