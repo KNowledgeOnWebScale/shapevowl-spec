@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [20230411] - 2023-04-11
+This version only contains adminstrative changes, **no spec content was changed**.
+
+### Changed
+
+- Updated affiliations
+- Deployment via GitHub pages
+
+### Fixed
+
+- Image resources are now also shown when watching a specific version of the spec ([#1](https://github.com/KNowledgeOnWebScale/shapevowl-spec/issues/1))
+
+
+
 ## [20211008] - 2021-10-08
 
 ### Added
@@ -38,6 +52,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - First draft
 
-[20200622]: https://gitlab.ilabt.imec.be/data-validation/validation-editor/shapevowl-spec/-/tags/v1.0.0
-[20210118]: https://gitlab.ilabt.imec.be/data-validation/validation-editor/shapevowl-spec/compare/20210118...v1.0.0
-[20211008]: https://gitlab.ilabt.imec.be/data-validation/validation-editor/shapevowl-spec/compare/20211008...20210118
+[20200622]: https://github.com/KNowledgeOnWebScale/shapevowl-spec/-/tags/v1.0.0
+[20210118]: https://github.com/KNowledgeOnWebScale/shapevowl-spec/compare/20210118...v1.0.0
+[20211008]: https://github.com/KNowledgeOnWebScale/shapevowl-spec/compare/20211008...20210118
+[20230411]: https://github.com/KNowledgeOnWebScale/shapevowl-spec/compare/20230411...20211008

@@ -27,9 +27,9 @@ dfn{cursor:pointer}
     
 
     
-<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/style.css">
     
-<link rel="stylesheet" type="text/css" href="../resources/css/extras.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/extras.css">
     
     
 
@@ -108,7 +108,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Sven Lieber",
       "url": "https://sven-lieber.org",
-      "company": "Ghent University — IDLab — imec"
+      "company": "Royal Library of Belgium (KBR)",
+      "companyURL": "https://www.kbr.be/en"
     }
   ],
   "doRdfa": "true",
@@ -138,11 +139,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Sven Lieber",
       "url": "https://sven-lieber.org",
-      "company": "Ghent University — IDLab — imec"
+      "company": "Royal Library of Belgium (KBR)",
+      "companyURL": "https://www.kbr.be/en"
     },
     {
       "name": "Anastasia Dimou",
-      "company": "Ghent University — IDLab — imec"
+      "url": "https://twitter.com/natadimou",
+      "company": "DTAI - KU Leuven",
+      "companyURL": "https://dtai.cs.kuleuven.be/"
     }
   ],
   "localBiblio": {
@@ -207,15 +211,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         
         
         <dt>Editors:</dt>
-        <dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://sven-lieber.org">Sven Lieber</a> (<span class="p-org org h-org">Ghent University — IDLab — imec</span>)
-  </dd><dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Anastasia Dimou</span> (<span class="p-org org h-org">Ghent University — IDLab — imec</span>)
-  </dd>
+      <dd class="p-author h-card vcard"><a class="u-url url p-name fn" href="https://sven-lieber.org">Sven Lieber</a> (<a class="p-org org h-org" href="https://www.kbr.be/en">Royal Library of Belgium (KBR)</a>) </dd><dd class="p-author h-card vcard"><a class="u-url url p-name fn" href="https://twitter.com/natadimou">Anastasia Dimou</a> (<a class="p-org org h-org" href="https://dtai.cs.kuleuven.be/">DTAI - KU Leuven</a>) </dd>
         
-        <dt>Author:</dt><dd class="editor p-author h-card vcard">
-    <a class="u-url url p-name fn" href="https://sven-lieber.org">Sven Lieber</a> (<span class="p-org org h-org">Ghent University — IDLab — imec</span>)
-  </dd>
+
+      <dt>Author:</dt><dd class="p-author h-card vcard"><a class="u-url url p-name fn" href="https://sven-lieber.org">Sven Lieber</a> (<a class="p-org org h-org" href="https://www.kbr.be/en">Royal Library of Belgium (KBR)</a>) </dd>
         
         <dt>This Version</dt><dd>
     <a href="https://w3id.org/imec/unshacled/spec/shape-vowl/20211008/">https://w3id.org/imec/unshacled/spec/shape-vowl/20211008/</a>
@@ -338,7 +337,7 @@ ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RD
   </tr>
   <tr>
     <td>rectangle with round corners</td>
-    <td><img src="../resources/images/primitives/rectangle-round-corners.svg"></td>
+    <td><img src="./resources/images/primitives/rectangle-round-corners.svg"></td>
     <td>
       <ul>
         <li>node shape</li>
@@ -348,7 +347,7 @@ ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RD
 
   <tr>
     <td>circle</td>
-    <td><img src="../resources/images/primitives/circle.svg"></td>
+    <td><img src="./resources/images/primitives/circle.svg"></td>
     <td>
       <ul>
         <li>value of a property shape</li>
@@ -357,7 +356,7 @@ ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RD
   </tr>
   <tr>
     <td>rectangle</td>
-    <td><img src="../resources/images/primitives/rectangle.svg"></td>
+    <td><img src="./resources/images/primitives/rectangle.svg"></td>
     <td>
       <ul>
         <li>relationship label</li>
@@ -367,7 +366,7 @@ ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RD
   </tr>
   <tr>
     <td>solid line</td>
-    <td><img src="../resources/images/primitives/solid-edge.svg"></td>
+    <td><img src="./resources/images/primitives/solid-edge.svg"></td>
     <td>
       <ul>
         <li>relationship between a node and a property shape</li>
@@ -376,7 +375,7 @@ ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RD
   </tr>
   <tr>
     <td>dashed line</td>
-    <td><img src="../resources/images/primitives/dashed-edge.svg"></td>
+    <td><img src="./resources/images/primitives/dashed-edge.svg"></td>
     <td>
       <ul>
         <li>relationship between nodes and data shapes or property shapes and node shapes (not between node shapes and property shapes)</li>
@@ -386,7 +385,7 @@ ShapeVOWL is an attempt to leverage the broadly used visual notation VOWL for RD
   </tr>
   <tr>
     <td>arrowhead</td>
-    <td><img src="../resources/images/primitives/arrow-head.svg"></td>
+    <td><img src="./resources/images/primitives/arrow-head.svg"></td>
     <td>
        relationship direction
     </td>
@@ -483,13 +482,13 @@ Finally, we provide a complete visual example.</p><section id="semantic-construc
 We provide a mapping of semantic constructs to visual representations with ShapeVOWL,
 i.e. in the first figure we provide the mapping from SHACL core constraints
 and in the second figure we provide the mapping from other relevant SHACL concepts.</p><figure id="semantic-constructs"> 
-  <img src="../resources/images/2021-10-08-shapevowl-core-constraints-summary.svg" style="height:100%;width:100%">
+  <img src="./resources/images/2021-10-08-shapevowl-core-constraints-summary.svg" style="height:100%;width:100%">
   <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">
     Semantic constructs of SHACL core constraints
     and their visual representation in ShapeVOWL.
   </span></figcaption>
 </figure><figure id="semantic-constructs"> 
-  <img src="../resources/images/2021-10-08-shapevowl-other-constraints-summary.svg" style="height:100%;width:100%">
+  <img src="./resources/images/2021-10-08-shapevowl-other-constraints-summary.svg" style="height:100%;width:100%">
   <figcaption>Figure <bdi class="figno">2</bdi> <span class="fig-title">
     Semantic constructs of validation-related SHACL concepts
     and their visual representation in ShapeVOWL.
@@ -498,7 +497,7 @@ and in the second figure we provide the mapping from other relevant SHACL concep
 Different splittings for property shapes are possible; in the following we describe three possible splitting rules for property shapes.
 Depending on the level of detail, applications may choose one of the splitting rules.</p><p>Property shapes consist of two parts: a solid directed edge with the property path as label in a rectangle and a value the directed edge points too which is either a node or a literal.</p><section id="duplicate-property-shape"><h4 id="x5-2-1-duplicate-property-shape"><bdi class="secno">5.2.1 </bdi>Duplicate property shape<a class="self-link" aria-label="§" href="#duplicate-property-shape"></a></h4><p>A reused property shape is visualized for each reuse, i.e. a property shape which is used <code>n</code> times will be visualized <code>n</code> times.</p></section><section id="duplicate-property-path"><h4 id="x5-2-2-duplicate-property-path"><bdi class="secno">5.2.2 </bdi>Duplicate property path<a class="self-link" aria-label="§" href="#duplicate-property-path"></a></h4><p>The value of a reused property shape is visualized only once but the directed edge and label are visualized for each reuse.</p></section><section id="no-duplication"><h4 id="x5-2-3-no-duplication"><bdi class="secno">5.2.3 </bdi>No duplication<a class="self-link" aria-label="§" href="#no-duplication"></a></h4><p>A reused property shape is visualized only once, i.e. a property shape which is used <code>n</code> times will be visualized exactly one time
 and will have <code>n</code> ingoing solid edges to the rectangle containing the property path.</p></section></section><section id="example"><h3 id="x5-3-example"><bdi class="secno">5.3 </bdi>Example<a class="self-link" aria-label="§" href="#example"></a></h3><p>Below you can find an example for constraints expressed with ShapeVOWL.</p><figure id="example-shapeuml"> 
-  <img src="../resources/images/2021-10-08-shapevowl-example.svg" style="height:100%;width:100%">
+  <img src="./resources/images/2021-10-08-shapevowl-example.svg" style="height:100%;width:100%">
   <figcaption>Figure <bdi class="figno">3</bdi> <span class="fig-title">
     Constraints visualized using ShapeVOWL: A subject valid to the Person data shape should have an IRI (1),
     at least one but maximum two <code>ex:address</code> properties (2) of class <code>schema:PostalAddress</code> (3)
